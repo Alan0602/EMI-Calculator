@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>EMI Calculator</h1>
+    <div class="container">
+        <div class="input">
+            <form>
+                <label>Loan(Amount):</label><br>
+                <input type="text" id="amount" placeholder="Enter the amount"><br>
+                <label>Rate(Intrest%):</label><br>
+                <input type="text" id="inr" placeholder="Enter the intrest"><br>
+                <label>Month:</label><br>
+                <input type="text" id="time" placeholder="Enter no of months"><br>
+            </form>
+        </div>
+        <div class="out">
+            <form>
+                <label class="output">Total EMI:</label><br>
+                <p id="emi"></p>
+                <button onmouseenter="Calculate()">Calculate</button>
+            </form>
+        </div> 
+    </div> 
+    <script>
+        function Calculate() {
+            const amount = document.querySelector("#amount").value;
+            const rate = document.querySelector("#inr").value;
+            const months = document.querySelector("#time").value;
+            const interest = (amount * (rate * 0.01)) / months;
+            const total = ((amount / months) + interest).toFixed(2);
+            document.querySelector("#emi").innerHTML = "EMI : (₹)" + total;
+        }
+    </script>
+</body>
+</html>
